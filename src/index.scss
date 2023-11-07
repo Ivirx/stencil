@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--fz-100: clamp(0.5763rem, 0.9353rem + -0.5611vw, 0.8231rem);
+	--fz-200: clamp(0.72rem, 0.95rem + -0.3594vw, 0.8781rem);
+	--fz-300: clamp(0.9rem, 0.9545rem + -0.0852vw, 0.9375rem);
+	--fz-400: clamp(1rem, 0.9432rem + 0.2841vw, 1.125rem);
+	--fz-500: clamp(1.0669rem, 0.9126rem + 0.7713vw, 1.4063rem);
+	--fz-600: clamp(1.1388rem, 0.8572rem + 1.4077vw, 1.7581rem);
+	--fz-700: clamp(1.215rem, 0.7684rem + 2.233vw, 2.1975rem);
+	--fz-800: clamp(1.2963rem, 0.6369rem + 3.2969vw, 2.7469rem);
+	--fz-900: clamp(1.3831rem, 0.4513rem + 4.6591vw, 3.4331rem);
+	--fz-950: clamp(1.4756rem, 0.1958rem + 6.3991vw, 4.2913rem);
+}
+
+body {
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: var(--fz-400);
+}
