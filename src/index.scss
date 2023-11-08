@@ -5,7 +5,16 @@
 	box-sizing: border-box;
 }
 
+::selection {
+	background-color: rgb(var(--primary));
+	color: rgb(var(--secondary));
+}
+
 :root {
+	--primary: 56 189 248;
+	--secondary: 224 242 254;
+	--gray: 148 163 184;
+
 	--fz-100: clamp(0.5763rem, 0.9353rem + -0.5611vw, 0.8231rem);
 	--fz-200: clamp(0.72rem, 0.95rem + -0.3594vw, 0.8781rem);
 	--fz-300: clamp(0.9rem, 0.9545rem + -0.0852vw, 0.9375rem);
@@ -20,5 +29,78 @@
 
 body {
 	font-family: 'Nanum Pen Script', cursive;
-	font-size: var(--fz-400);
+	font-size: var(--fz-500);
+	background-color: rgb(var(--secondary));
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	width: clamp(20rem, 100%, 56rem);
+	margin-inline: auto;
+	margin-block: 20vh;
+	padding-inline: 1.5rem;
+	opacity: 0;
+	translate: 0 2.5rem;
+	transition: 800ms ease-in-out 100ms;
+	transition-property: opacity, translate;
+
+	&.load {
+		opacity: 1;
+		translate: 0 0;
+	}
+
+	h1 {
+		margin-block-end: 0.75em;
+		color: rgb(var(--primary));
+		font-size: var(--fz-900);
+		font-weight: 500;
+		line-height: 1;
+	}
+}
+
+.select {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+
+	label {
+		cursor: pointer;
+	}
+
+	select {
+		width: clamp(0rem, 100%, 20rem);
+		margin-block-start: 0.1em;
+		padding-inline: 0.25em;
+		font: inherit;
+		font-size: var(--fz-600);
+		background-color: transparent;
+		border: none;
+		border-block-end: 0.125em solid rgb(var(--primary) / 0.375);
+		border-radius: 0.125em;
+		transition: border-color 250ms ease-in-out;
+		cursor: pointer;
+
+		&:hover {
+			border-block-end-color: rgb(var(--primary) / 0.625);
+			transition-duration: 150ms;
+		}
+
+		&:focus-visible {
+			border-block-end-color: rgb(var(--primary));
+			outline: none;
+		}
+	}
+
+	p {
+		margin-block-start: 0.25em;
+		color: rgb(var(--gray));
+		font-size: var(--fz-400);
+		line-height: 1;
+	}
 }
