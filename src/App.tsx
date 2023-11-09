@@ -1,14 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
 
 import { Top } from './components/Top';
+import { Stencil } from './components/Stencil';
+import { getValues, Values } from './components/utils';
 
 function App() {
-	const [height, setHeight] = useState(10);
+	const [height, setHeight] = useState(14);
+	const [values, setValues] = useState<Values>(getValues(height));
 	const contentRef = useRef<HTMLElement>(null);
 
 	function changeHeight(e: React.ChangeEvent<HTMLSelectElement>) {
 		setHeight(Number(e.target.value));
 	}
+
+	useEffect(() => {
+		setValues(getValues(Number(height)));
+	}, [height]);
 
 	useEffect(() => {
 		contentRef.current!.classList.remove('load');
@@ -24,6 +31,8 @@ function App() {
 		<main>
 			<section ref={contentRef} className='content'>
 				<Top height={height} changeHeight={changeHeight} />
+				<hr />
+				<Stencil values={values} />
 			</section>
 		</main>
 	);
