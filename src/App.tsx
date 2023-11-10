@@ -8,9 +8,7 @@ import { Demo } from './components/Demo';
 function App() {
 	const [height, setHeight] = useState(14);
 	const [values, setValues] = useState<Values>(getValues(height));
-	const [text, setText] = useState<string>(
-		'Lorem ipsum dolor sit amet consectetur adipisicing elit'
-	);
+	const [text, setText] = useState<string>('Hello World');
 	const contentRef = useRef<HTMLElement>(null);
 
 	function changeHeight(e: React.ChangeEvent<HTMLSelectElement>) {

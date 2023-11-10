@@ -245,46 +245,14 @@ main {
 
 .preview {
 	margin-block-start: 1rem;
-	padding: 3rem 1rem;
-	font-family: 'Roboto', sans-serif;
-	font-size: var(--fz);
-	font-weight: 400;
-	line-height: 0.85;
-	text-transform: uppercase;
+	padding: 3rem 4rem;
 	background-color: rgb(var(--white));
 	border-radius: 0.375rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	row-gap: var(--vertical);
-
-	.space:first-child,
-	.gap:first-child {
-		display: none;
-	}
-
-	.word {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.space {
-		width: var(--width);
-		background-color: #cffafe;
-		align-self: stretch;
-	}
-
-	.letter {
-		background-color: #dcfce7;
-	}
-
-	.gap {
-		width: var(--width);
-		background-color: #fef9c3;
-		align-self: stretch;
-	}
+	row-gap: calc(var(--fz-500) + var(--vertical));
 
 	.box {
 		position: relative;
@@ -337,5 +305,114 @@ main {
 				right: 0;
 			}
 		}
+	}
+
+	.space:first-child,
+	.gap:first-child {
+		display: none;
+	}
+
+	.word {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.space {
+		background-color: #fbcfe8;
+	}
+
+	.letter {
+		background-color: #dcfce7;
+	}
+
+	.gap {
+		background-color: #fef9c3;
+	}
+
+	.alpha {
+		font-family: 'Roboto', sans-serif;
+		font-size: calc(var(--fz-600) + var(--fz));
+		font-weight: 400;
+		line-height: 0.8125;
+		text-transform: uppercase;
+		display: block;
+
+		&.invisible {
+			visibility: hidden;
+			pointer-events: none;
+		}
+	}
+
+	@media (width < 40rem) {
+		row-gap: calc((var(--fz-100) / 2) + var(--vertical));
+
+		.alpha {
+			font-size: calc(var(--fz-400) + var(--fz));
+		}
+
+		.gap {
+			width: calc((var(--fz-100) / 2) + var(--width));
+		}
+	}
+}
+
+.points {
+	margin-block-start: 2rem;
+
+	div {
+		margin-block-start: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: start;
+		align-items: center;
+		gap: 0.75rem;
+		row-gap: 1rem;
+	}
+
+	.letterSpace,
+	.wordSpace,
+	.gapSpace {
+		padding-inline: 0.2em;
+		font-size: var(--fz-600);
+		line-height: 1;
+		border-radius: 0.25em;
+
+		&.last {
+			display: none;
+		}
+	}
+
+	.letterSpace {
+		background-color: #dcfce7;
+	}
+
+	.wordSpace {
+		background-color: #fbcfe8;
+	}
+
+	.gapSpace {
+		background-color: #fef9c3;
+	}
+
+	.dot {
+		color: rgb(var(--gray) / 0.35);
+		font-size: var(--fz-300);
+
+		&.last {
+			display: none;
+		}
+
+		&:has(+ .last) {
+			display: none;
+		}
+	}
+
+	p {
+		margin-block-start: 1em;
+		color: rgb(var(--gray));
+		font-size: var(--fz-400);
+		text-align: left;
+		line-height: 1;
 	}
 }
