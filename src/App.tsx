@@ -34,9 +34,9 @@ function App() {
 			<section ref={contentRef} className='content'>
 				<Top height={height} changeHeight={changeHeight} />
 				<hr />
-				<Stencil values={values} />
-				<hr />
 				<Demo values={values} text={text} setText={setText} />
+				<hr />
+				<Stencil values={values} />
 			</section>
 		</main>
 	);

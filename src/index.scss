@@ -274,7 +274,8 @@ main {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	row-gap: calc(var(--fz-500) + var(--vertical));
+	// row-gap: calc(var(--fz-500) + var(--vertical));
+	row-gap: calc(var(--fz-600));
 
 	.box {
 		position: relative;
@@ -354,7 +355,7 @@ main {
 
 	.alpha {
 		font-family: 'Roboto', sans-serif;
-		font-size: calc(var(--fz-600) + var(--fz));
+		font-size: calc(var(--fz-800));
 		font-weight: 400;
 		line-height: 0.8125;
 		text-transform: uppercase;
@@ -367,15 +368,16 @@ main {
 	}
 
 	@media (width < 40rem) {
-		row-gap: calc((var(--fz-100) / 2) + var(--vertical));
+		// row-gap: calc((var(--fz-100) / 2) + var(--vertical));
 
 		.alpha {
-			font-size: calc(var(--fz-400) + var(--fz));
+			// font-size: calc(var(--fz-400) + var(--fz));
+			font-size: calc(var(--fz-900));
 		}
 
-		.gap {
-			width: calc((var(--fz-100) / 2) + var(--width));
-		}
+		// .gap {
+		// 	width: calc((var(--fz-100) / 2) + var(--width));
+		// }
 	}
 }
 
@@ -404,6 +406,10 @@ main {
 
 	.letterSpace {
 		background-color: #dcfce7;
+	}
+
+	.letterSpace.zero-dot-zero {
+		background-color: #e5e7eb;
 	}
 
 	.wordSpace {
